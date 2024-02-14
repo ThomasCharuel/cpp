@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:33:26 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/13 23:49:19 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:53:40 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 PhoneBook::PhoneBook(void)
 {
-	this->index = 0;
+	this->_contactIndex = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -23,18 +23,18 @@ PhoneBook::~PhoneBook(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-void PhoneBook::add_contact()
+void PhoneBook::addContact(void)
 {
 	std::cout << "First Name >" << std::endl;
-	std::cin >> this->contacts[this->index].first_name;
+	std::cin >> this->_contacts[this->_contactIndex].first_name;
 	std::cout << "Last Name >" << std::endl;
-	std::cin >> this->contacts[this->index].last_name;
+	std::cin >> this->_contacts[this->_contactIndex].last_name;
 	std::cout << "Nickname >" << std::endl;
-	std::cin >> this->contacts[this->index].nickname;
+	std::cin >> this->_contacts[this->_contactIndex].nickname;
 	std::cout << "Phone Number >" << std::endl;
-	std::cin >> this->contacts[this->index].phone_number;
+	std::cin >> this->_contacts[this->_contactIndex].phone_number;
 	std::cout << "Darkest Secret >" << std::endl;
-	std::cin >> this->contacts[this->index].darkest_secret;
-	std::cout << this->contacts[this->index].first_name << " " << this->contacts[this->index].last_name << " has been added to your contacts !" << std::endl;
-	++this->index %= MAX_CONTACT;
+	std::cin >> this->_contacts[this->_contactIndex].darkest_secret;
+	std::cout << this->_contacts[this->_contactIndex].first_name << " " << this->contacts[this->index].last_name << " has been added to your contacts !" << std::endl;
+	++this->_contactIndex %= MAX_CONTACT;
 }
