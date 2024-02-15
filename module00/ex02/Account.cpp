@@ -6,12 +6,13 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:36:31 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/15 17:31:30 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:03:42 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <ctime>
+#include <iomanip>
 #include <iostream>
 
 int Account::_nbAccounts = 0;
@@ -105,6 +106,10 @@ void Account::_displayTimestamp(void)
 {
 	std::time_t t = std::time(0);
 	std::tm *now = std::localtime(&t);
-	std::cout << "[" << now->tm_year + 1900 << now->tm_mon
-		+ 1 << now->tm_mday << "_" << now->tm_hour << now->tm_min << now->tm_sec << "] ";
+	std::cout << "[";
+	std::cout << std::setfill('0') << now->tm_year
+		+ 1900 << std::setw(2) << now->tm_mon
+		+ 1 << std::setw(2) << now->tm_mday;
+	std::cout << "_";
+	std::cout << std::setfill('0') << std::setw(2) << now->tm_hour << std::setw(2) << now->tm_min << std::setw(2) << now->tm_sec << "] ";
 }
