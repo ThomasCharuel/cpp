@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:33:29 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/13 23:53:28 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:07:28 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PhoneBook
 	~PhoneBook(void);
 
 	void addContact(void);
+	void displayContacts(void) const;
 
   private:
 	int _contactIndex;
