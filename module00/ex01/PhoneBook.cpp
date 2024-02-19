@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 21:33:26 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/17 11:14:54 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:43:48 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void PhoneBook::searchContact(void) const
 		std::cout << "Invalid input. Please enter a number between 0 and " << MAX_CONTACT
 			- 1 << std::endl;
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		return ;
 	}
 
 	if (index < 0 || index >= MAX_CONTACT
