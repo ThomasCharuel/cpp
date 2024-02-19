@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:28 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/19 14:35:14 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:40:04 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB {
 
 		void attack(void) const;
 
-		void setWeapon(Weapon weapon);
+		void setWeapon(Weapon& weapon);
 
 	private:
 		std::string _name;
