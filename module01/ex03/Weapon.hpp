@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:42 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/19 14:25:03 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:36:49 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Weapon {
 		void setType(std::string type);
 
 	private:
-		std::string _type;
+		std::string type;
 };
 
 #endif

@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 14:06:35 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/21 11:36:57 by tcharuel         ###   ########.fr       */
+/*   Created: 2024/02/18 23:17:52 by tcharuel          #+#    #+#             */
+/*   Updated: 2024/02/21 12:07:03 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include <iostream>
+#include "Harl.hpp"
 
-Weapon::Weapon(std::string type): type(type)
+int	main(void)
 {
-}
+	Harl harl;
 
-Weapon::~Weapon(void)
-{
-}
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("unknown");
+	harl.complain("");
 
-const std::string& Weapon::getType(void) const
-{
-	return this->type;
-}
-
-void Weapon::setType(std::string type)
-{
-	this->type = type;
+	return (0);
 }
