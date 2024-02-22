@@ -6,11 +6,12 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:05:34 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/22 22:41:30 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:27:33 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 #include <iostream>
 
 Fixed::Fixed(void): _rawBits(0)
@@ -21,13 +22,13 @@ Fixed::Fixed(void): _rawBits(0)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_rawBits = value;
+	this->_rawBits = value << Fixed::_fractional_bits;
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_rawBits = (int)value;
+	this->_rawBits = (int)roundf(value * (1 << Fixed::_fractional_bits));
 }
 
 Fixed::Fixed(const Fixed& src)
@@ -59,11 +60,11 @@ void Fixed::setRawBits(int const raw) {
 }
 
 int Fixed::toInt(void) const {
-	return 0;
+	return this->_rawBits >> Fixed::_fractional_bits;
 }
 
 float Fixed::toFloat(void) const {
-	return 0.0f;
+	return ((float)this->_rawBits / (float)(1 << Fixed::_fractional_bits));
 }
 
 std::ostream& operator<<(std::ostream& o, const Fixed& rhs) {
