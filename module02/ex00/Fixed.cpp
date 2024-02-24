@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:05:34 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 14:37:33 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:40:53 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ Fixed::Fixed(void): _rawBits(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(const Fixed& src): _rawBits(src._rawBits)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
 }
 
 Fixed::~Fixed(void)

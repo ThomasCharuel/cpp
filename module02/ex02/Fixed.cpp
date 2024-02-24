@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:05:34 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 17:24:43 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:41:36 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ Fixed::Fixed(const float value)
 	this->_rawBits = (int)roundf(value * (1 << Fixed::_fractional_bits));
 }
 
-Fixed::Fixed(const Fixed& src)
+Fixed::Fixed(const Fixed& src): _rawBits(src._rawBits)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
 }
 
 Fixed::~Fixed(void)
