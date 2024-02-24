@@ -62,6 +62,9 @@
 		"algorithm": "cpp",
 		"iomanip": "cpp",
 		"numeric": "cpp",
-		"random": "cpp"
+		"random": "cpp",
+		"fstream": "cpp",
+		"deque": "cpp",
+		"stack": "cpp"
 	}
 }
