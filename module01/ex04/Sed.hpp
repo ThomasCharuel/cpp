@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:35:27 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 09:04:31 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:02:41 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Sed {
 		Sed(std::string infile, std::string old_str, std::string new_str);
 		~Sed();
 
-		bool init_check(void) const;
+		bool init_and_check(void) const;
 		void run(void) const;
 
 	private:

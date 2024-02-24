@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 08:35:15 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 08:45:13 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:28:35 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,33 @@ Sed::~Sed()
 {
 }
 
-// std::ifstream ifs("numbers");
-// unsigned int dst;
-// unsigned int dst2;
+bool Sed::init_and_check(void) const
+{
+	if (this->_infile.empty())
+	{
+		std::cout << "Bad argument: Empty filename" << std::endl;
+		return (false);
+	}
+	if (this->_old_str.empty())
+	{
+		std::cout << "Bad argument: Empty string to be replaced" << std::endl;
+		return (false);
+	}
+	return (true);
+}
 
-// ifs >> dst >> dst2;
+void Sed::run(void) const
+{
+	char c;
+	std::ifstream ifs(this->_infile.c_str());
+	std::ofstream ofs(this->_outfile.c_str());
 
-// ifs.close();
-
-// std::ofstream ofs("test.out");
-// ofs << "I like ponies" << std::endl;
-// ofs.close();
-
+	while (ifs.good())
+	{
+		c = ifs.get();
+		if (c)
+			ofs << c;
+	}
+	ifs.close();
+	ofs.close();
+}

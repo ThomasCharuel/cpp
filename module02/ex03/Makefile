@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = bsp
 
 SRC_FILES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ = $(SRC_FILES:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 08:40:57 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 09:04:32 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:16:33 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	if (argc == 4)
 	{
 		sed = Sed(argv[1], argv[2], argv[3]);
-		if (sed.init_check())
+		if (sed.init_and_check())
 			sed.run();
 	}
 	else
