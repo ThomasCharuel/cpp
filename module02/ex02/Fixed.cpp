@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:05:34 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 15:02:31 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:56:36 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,42 +76,46 @@ bool Fixed::operator!=(const Fixed& rhs){
 
 
 Fixed& Fixed::operator+(const Fixed& rhs){
-	this->_rawBits += rhs.getRawBits();
+	return Fixed(this->_rawBits += rhs.getRawBits();
 	return *this;
 }
 
 Fixed& Fixed::operator-(const Fixed& rhs){
-this->_rawBits -= rhs.getRawBits();
+	this->_rawBits -= rhs.getRawBits();
 	return *this;
 }
 
 Fixed& Fixed::operator*(const Fixed& rhs){
-	this->_rawBits *= rhs.getRawBits();
+	this->_rawBits = (this->_rawBits * rhs.getRawBits()) >> Fixed::_fractional_bits;
 	return *this;
 }
 
 Fixed& Fixed::operator/(const Fixed& rhs){
-	this->_rawBits /= rhs.getRawBits();
-	return *this;
+	return Fixed(this->toFloat() / rhs.toFloat());
+	// this->_rawBits = (this->_rawBits / rhs.getRawBits()) << Fixed::_fractional_bits;
 }
 
 
 Fixed& Fixed::operator++(){
-	this->_rawBits += 1 << Fixed::_fractional_bits;
+	this->_rawBits++;
 	return *this;
 }
 
 Fixed Fixed::operator++(int){
-	return *this;
+	Fixed tmp(*this);
+	this->_rawBits++;
+	return tmp;
 }
 
 Fixed& Fixed::operator--(){
-	this->_rawBits -= 1 << Fixed::_fractional_bits;
+	this->_rawBits--;
 	return *this;
 }
 
 Fixed Fixed::operator--(int){
-	return *this;
+	Fixed tmp(*this);
+	this->_rawBits--;
+	return tmp;
 }
 
 
