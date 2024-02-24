@@ -6,17 +6,29 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:29:07 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 17:45:52 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:21:13 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include "Fixed.hpp"
+
+Fixed get_triangle_area(Point const a, Point const b, Point const c)
+{
+	Fixed area;
+
+	area = Fixed(a.getX() * ((Fixed) b.getY() - (Fixed) c.getY()));
+	if (area < 0)
+		return (area * Fixed(-1));
+	return (area);
+}
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	(void) a;
-	(void) b;
-	(void) c;
-	(void) point;
-	return (true);
+	Fixed triangle_area = get_triangle_area(a, b, c);
+	Fixed sub_triangle_1_area = get_triangle_area(point, b, c);
+	Fixed sub_triangle_2_area = get_triangle_area(a, point, c);
+	Fixed sub_triangle_3_area = get_triangle_area(a, b, point);
+	
+	return (triangle_area == sub_triangle_1_area + sub_triangle_2_area + sub_triangle_3_area);
 }

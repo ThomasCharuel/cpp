@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:29:13 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 17:51:39 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 20:25:41 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,19 @@ Point& Point::operator=(const Point& rhs)
 	(Fixed) this->y = rhs.y;
 	return *this;
 }
+
+const Fixed Point::getX(void) const
+{
+	return this->x;
+}
+
+const Fixed Point::getY(void) const
+{
+	return this->y;
+}
+
+std::ostream& operator<<(std::ostream& o, const Point& rhs) {
+	o << "( " << rhs.getX() << ", " << rhs.getY() << ")";
+	return o;
+}
+
