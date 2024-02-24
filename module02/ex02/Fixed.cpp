@@ -6,7 +6,7 @@
 /*   By: tcharuel <tcharuel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:05:34 by tcharuel          #+#    #+#             */
-/*   Updated: 2024/02/24 14:38:37 by tcharuel         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:02:31 by tcharuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,97 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 	this->_rawBits = rhs.getRawBits();
 	return *this;
 }
+
+bool Fixed::operator>(const Fixed& rhs)
+{
+	return (this->_rawBits > rhs.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed& rhs){
+	return (this->_rawBits < rhs.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed& rhs){
+	return (this->_rawBits >= rhs.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed& rhs){
+	return (this->_rawBits <= rhs.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed& rhs){
+	return (this->_rawBits == rhs.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed& rhs){
+	return (this->_rawBits != rhs.getRawBits());
+}
+
+
+Fixed& Fixed::operator+(const Fixed& rhs){
+	this->_rawBits += rhs.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator-(const Fixed& rhs){
+this->_rawBits -= rhs.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator*(const Fixed& rhs){
+	this->_rawBits *= rhs.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator/(const Fixed& rhs){
+	this->_rawBits /= rhs.getRawBits();
+	return *this;
+}
+
+
+Fixed& Fixed::operator++(){
+	this->_rawBits += 1 << Fixed::_fractional_bits;
+	return *this;
+}
+
+Fixed Fixed::operator++(int){
+	return *this;
+}
+
+Fixed& Fixed::operator--(){
+	this->_rawBits -= 1 << Fixed::_fractional_bits;
+	return *this;
+}
+
+Fixed Fixed::operator--(int){
+	return *this;
+}
+
+
+Fixed& Fixed::min(Fixed& lhs, Fixed& rhs){
+	if (lhs <= rhs)
+		return (lhs);
+	return (rhs);
+}
+
+const Fixed& Fixed::min(const Fixed& lhs, const Fixed& rhs){
+	if ((Fixed&)lhs <= rhs)
+		return (lhs);
+	return (rhs);
+}
+
+Fixed& Fixed::max(Fixed& lhs, Fixed& rhs){
+	if (lhs >= rhs)
+		return (lhs);
+	return (rhs);
+}
+
+const Fixed& Fixed::max(const Fixed& lhs, const Fixed& rhs){
+	if ((Fixed&)lhs >= rhs)
+		return (lhs);
+	return (rhs);
+}
+
 
 int Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
