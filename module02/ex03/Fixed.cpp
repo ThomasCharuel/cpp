@@ -16,34 +16,34 @@
 
 Fixed::Fixed(void): _rawBits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	this->_rawBits = value << Fixed::_fractional_bits;
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	this->_rawBits = (int)roundf(value * (1 << Fixed::_fractional_bits));
 }
 
 Fixed::Fixed(const Fixed& src): _rawBits(src._rawBits)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	this->_rawBits = rhs.getRawBits();
 	return *this;
 }
@@ -140,7 +140,7 @@ const Fixed& Fixed::max(const Fixed& lhs, const Fixed& rhs){
 
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return this->_rawBits;
 }
 

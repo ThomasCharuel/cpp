@@ -24,8 +24,8 @@ class Point {
 
 		Point& operator=(const Point& rhs);
 
-		const Fixed getX(void) const;
-		const Fixed getY(void) const;
+		Fixed getX(void) const;
+		Fixed getY(void) const;
 
 	private:
 		const Fixed x;

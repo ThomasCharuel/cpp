@@ -21,9 +21,11 @@ int main(void)
 	Point b(20, 0);
 	Point c(10, 30);
 
-	Point point(10, 15);
-
-	std::cout << "Point " << point << (bsp(a, b, c, point) ? " is " : " is not ") << "inside triangle" << std::endl;
+	for (int x = 10; x < 20; x++) {
+		Point point = Point(x, 15);
+		bool result = bsp(a, b, c, point);
+		std::cout << "Point " << point << (result ? " is " : " is not ") << "inside triangle" << std::endl;
+	}
 
 	return (0);
 }

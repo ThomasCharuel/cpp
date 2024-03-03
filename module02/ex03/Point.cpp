@@ -35,18 +35,18 @@ Point& Point::operator=(const Point& rhs)
 	return *this;
 }
 
-const Fixed Point::getX(void) const
+Fixed Point::getX(void) const
 {
 	return this->x;
 }
 
-const Fixed Point::getY(void) const
+Fixed Point::getY(void) const
 {
 	return this->y;
 }
 
 std::ostream& operator<<(std::ostream& o, const Point& rhs) {
-	o << "( " << rhs.getX() << ", " << rhs.getY() << ")";
+	o << "(" << rhs.getX() << ", " << rhs.getY() << ")";
 	return o;
 }
 

@@ -13,14 +13,21 @@
 #include "Point.hpp"
 #include "Fixed.hpp"
 
+Fixed abs(Fixed number)
+{
+	if (number < 0)
+		return (number * Fixed(-1));
+	return (number);
+}
+
 Fixed get_triangle_area(Point const a, Point const b, Point const c)
 {
 	Fixed area;
 
-	area = Fixed(a.getX() * ((Fixed) b.getY() - (Fixed) c.getY()));
-	if (area < 0)
-		return (area * Fixed(-1));
-	return (area);
+	area = (a.getX() * (b.getY() - c.getY()) 
+		+ b.getX() * (c.getY() - a.getY()) 
+		+ c.getX() * (a.getY() - b.getY())) / 2;
+	return (abs(area));
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
